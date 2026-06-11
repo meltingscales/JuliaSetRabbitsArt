@@ -3,6 +3,8 @@
 
 art for my friend Milo
 
+![](./preview.png)
+
 ## building
 
 Requires [node](https://nodejs.org/) (v20+) and optionally [just](https://github.com/casey/just).
