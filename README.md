@@ -5,11 +5,23 @@ art for my friend Milo
 
 ## building
 
-ai please fill in
+Requires [node](https://nodejs.org/) (v20+) and optionally [just](https://github.com/casey/just).
+
+```sh
+just install   # or: npm install
+just build     # or: npm run build  → outputs static site to ./dist/
+```
+
+The build is a fully static site (no backend) — host `dist/` anywhere.
 
 ## running
 
-ai please fill in
+```sh
+just dev       # or: npm run dev  → dev server with hot reload
+just preview   # or: npm run preview  → serve the production build
+```
+
+Then open the printed URL (default http://localhost:5173). Drag to pan/orbit, scroll to zoom.
 
 ## for AI
 - julia set viewer

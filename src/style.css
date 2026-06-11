@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  font-family: system-ui, sans-serif;
+  background: #0d0a14;
+  color: #e8e2f0;
+}
+
+#panel {
+  width: 270px;
+  flex: 0 0 auto;
+  padding: 12px;
+  overflow-y: auto;
+  background: #161020;
+  border-right: 1px solid #2c2240;
+}
+
+#panel h1 {
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+}
+
+fieldset {
+  border: 1px solid #2c2240;
+  border-radius: 6px;
+  margin: 0 0 10px;
+  padding: 8px;
+}
+
+legend {
+  font-size: 0.8rem;
+  color: #a89cc8;
+  padding: 0 4px;
+}
+
+label {
+  display: block;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+  color: #cfc6e4;
+}
+
+label.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+label span[data-val] {
+  float: right;
+  color: #8d80b0;
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 2px 0 0;
+}
+
+select,
+button {
+  width: 100%;
+  margin-top: 2px;
+  padding: 4px 6px;
+  background: #221a33;
+  color: #e8e2f0;
+  border: 1px solid #3a2d55;
+  border-radius: 4px;
+  font-size: 0.78rem;
+}
+
+label.checkbox input {
+  width: auto;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+button:hover {
+  background: #2e2347;
+}
+
+#status {
+  font-size: 0.72rem;
+  color: #8d80b0;
+  min-height: 1em;
+  margin: 4px 0;
+}
+
+.hint {
+  font-size: 0.72rem;
+  color: #6c6088;
+  margin: 4px 0;
+}
+
+#stage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+#stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+#stage canvas:active {
+  cursor: grabbing;
+}
+
+body[data-mode="julia"] .only-mandel,
+body[data-mode="julia"] .only-3d,
+body[data-mode="mandelbrot"] .only-julia,
+body[data-mode="mandelbrot"] .only-3d,
+body[data-mode="3d"] .only-julia,
+body[data-mode="3d"] .only-mandel,
+body[data-mode="3d"] .only-2d {
+  display: none;
+}

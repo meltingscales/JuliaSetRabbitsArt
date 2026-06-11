@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Julia Set Rabbits — art for Milo</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <aside id="panel">
+      <h1>Julia Set Rabbits 🐇</h1>
+
+      <fieldset>
+        <legend>Fractal</legend>
+        <label>Mode
+          <select id="mode">
+            <option value="julia">Julia (2D)</option>
+            <option value="mandelbrot">Mandelbrot (2D)</option>
+            <option value="3d">3D (raymarched)</option>
+          </select>
+        </label>
+        <label>Preset
+          <select id="preset"></select>
+        </label>
+        <label class="only-julia">c (real) <span data-val="cre"></span>
+          <input id="cre" type="range" min="-2" max="2" step="0.0005" />
+        </label>
+        <label class="only-julia">c (imag) <span data-val="cim"></span>
+          <input id="cim" type="range" min="-2" max="2" step="0.0005" />
+        </label>
+        <label class="only-2d">Iterations <span data-val="iter"></span>
+          <input id="iter" type="range" min="10" max="400" step="1" />
+        </label>
+        <label class="only-mandel checkbox">
+          <input id="bifurcation" type="checkbox" />
+          Bifurcation diagram (logistic map) behind set
+        </label>
+      </fieldset>
+
+      <fieldset class="only-2d">
+        <legend>Pixels (sprites)</legend>
+        <label>Cell size <span data-val="cell"></span>
+          <input id="cell" type="range" min="5" max="48" step="1" />
+        </label>
+        <label>Sprite scale <span data-val="spriteScale"></span>
+          <input id="spriteScale" type="range" min="0.3" max="3" step="0.05" />
+        </label>
+        <label>Chaos / noise <span data-val="chaos"></span>
+          <input id="chaos" type="range" min="0" max="1" step="0.01" />
+        </label>
+        <label>Hue base <span data-val="hueBase"></span>
+          <input id="hueBase" type="range" min="0" max="360" step="1" />
+        </label>
+        <label>Hue spread <span data-val="hueSpread"></span>
+          <input id="hueSpread" type="range" min="0" max="720" step="1" />
+        </label>
+        <button id="reseed" type="button">Reseed randomness</button>
+      </fieldset>
+
+      <fieldset class="only-2d">
+        <legend>Warp</legend>
+        <label>Scale X <span data-val="warpX"></span>
+          <input id="warpX" type="range" min="0.2" max="3" step="0.01" />
+        </label>
+        <label>Scale Y <span data-val="warpY"></span>
+          <input id="warpY" type="range" min="0.2" max="3" step="0.01" />
+        </label>
+        <label>Rotation° <span data-val="warpRot"></span>
+          <input id="warpRot" type="range" min="-180" max="180" step="1" />
+        </label>
+      </fieldset>
+
+      <fieldset class="only-3d">
+        <legend>3D</legend>
+        <label>Solid
+          <select id="solid">
+            <option value="0">Menger sponge</option>
+            <option value="1">Mandelbulb</option>
+            <option value="2">Sierpinski tetrahedron</option>
+          </select>
+        </label>
+        <label>Detail <span data-val="detail"></span>
+          <input id="detail" type="range" min="1" max="8" step="1" />
+        </label>
+        <label>Hue <span data-val="hue3d"></span>
+          <input id="hue3d" type="range" min="0" max="360" step="1" />
+        </label>
+        <label class="checkbox">
+          <input id="spin" type="checkbox" checked />
+          Auto-rotate
+        </label>
+      </fieldset>
+
+      <button id="resetView" type="button">Reset view</button>
+      <p id="status"></p>
+      <p class="hint">drag to pan/orbit · scroll to zoom</p>
+      <p class="hint">art for Milo 🌷</p>
+    </aside>
+
+    <main id="stage">
+      <canvas id="canvas2d"></canvas>
+      <canvas id="canvas3d" hidden></canvas>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
